@@ -13,7 +13,7 @@ public class TaskPopUp : MonoBehaviour
 
     public HeroTask Task => _task;
     public void Init(HeroTask task) {
-        this.transform.position = new Vector3 (50, 50, 0);
+        this.GetComponent<RectTransform>().anchoredPosition = new Vector2 (50, 50);
         _task = task;
         _popUp.SetActive(false);
         _title = _task.Name;
