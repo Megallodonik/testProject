@@ -36,7 +36,5 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         _image.raycastTarget = true;
     }
 
-    public virtual bool InTaskSlot(int requairedStrength) {
-        return false;
-    }
+
 }

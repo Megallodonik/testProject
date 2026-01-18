@@ -26,7 +26,7 @@ public class CardManager : MonoBehaviour {
         Hero hero = _config.Heroes.FirstOrDefault(t => t.Name == cardName);
         if (hero != null) {
             Card card = _cardPool.Get();
-            card.Init(hero, slotPos);
+            card.Init(hero, slotPos, this);
             _activeCards.Add(card);
         }
     }

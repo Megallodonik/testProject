@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 1147798533320684190}
   - component: {fileID: 1421518716884691797}
   - component: {fileID: 6817333661145588462}
-  - component: {fileID: 3300972289159841224}
+  - component: {fileID: 8667349719626711881}
   m_Layer: 5
   m_Name: PopUp
   m_TagString: Untagged
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3300972289159841224
+--- !u!114 &8667349719626711881
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,9 +225,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1508071288555374307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 551f266744282244e84c9ec10ff9ffc5, type: 3}
+  m_Script: {fileID: 11500000, guid: ce5b59c50a598ab4bb72a7d2f72c56bd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DragAndDropSlot
+  m_EditorClassIdentifier: Assembly-CSharp::PopUpSlot
+  _titleText: {fileID: 7847940883260307408}
+  _strengthText: {fileID: 8362165748826217050}
 --- !u!1 &4310184197039280299
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,9 +784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02337556295418d49b48c0d2b40bb5ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaskPopUp
-  _popUp: {fileID: 1508071288555374307}
-  _titleText: {fileID: 7847940883260307408}
-  _strengthText: {fileID: 8362165748826217050}
+  _slot: {fileID: 8667349719626711881}
 --- !u!1 &6706491453303218767
 GameObject:
   m_ObjectHideFlags: 0
