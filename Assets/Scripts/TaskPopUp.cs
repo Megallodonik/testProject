@@ -7,13 +7,17 @@ public class TaskPopUp : MonoBehaviour
     [SerializeField] private GameObject _popUp;
     [SerializeField] private TMPro.TextMeshProUGUI _titleText;
     [SerializeField] private TMPro.TextMeshProUGUI _strengthText;
+    private Vector2 _offset;
     private HeroTask _task;
     private string _title;
     private int _requairedStrength;
 
     public HeroTask Task => _task;
     public void Init(HeroTask task) {
-        this.GetComponent<RectTransform>().anchoredPosition = new Vector2 (50, 50);
+        int posX = Random.Range(0 + 50, Screen.width - 50);
+        int posY = Random.Range(0 + 50, Screen.height - 50);
+        this.transform.position = new Vector2 (posX, posY);
+
         _task = task;
         _popUp.SetActive(false);
         _title = _task.Name;

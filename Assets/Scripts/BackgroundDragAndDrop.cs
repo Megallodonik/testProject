@@ -4,9 +4,8 @@ using UnityEngine.EventSystems;
 public class BackgroundDragAndDrop : DragAndDropSlot
 {
     public override void OnDrop(PointerEventData eventData) {
-        if (eventData.pointerDrag != null) {
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition =
-            eventData.pointerDrag.GetComponent<DragAndDrop>().SlotPodition;
+        if (eventData.pointerDrag != null || eventData.pointerDrag.GetComponent<DragAndDrop>() != null) {
+            eventData.pointerDrag.GetComponent<DragAndDrop>().ReturnToSlot();
         }
     }
 }

@@ -13,7 +13,16 @@ MonoBehaviour:
   m_Name: TasksConfig
   m_EditorClassIdentifier: Assembly-CSharp::TasksConfigScriptableObject
   _taskPrefab: {fileID: 6614059725205293261, guid: e618078bbe19db7449f052ee68968904, type: 3}
+  _cardPrefab: {fileID: 2104368101763458350, guid: bb46dcfb639e3b8498ba75cff3fbd242, type: 3}
   _tasks:
   - _taskName: test
     _requairedStrength: 1
+  _heroes:
+  - _name: test
+    _strength: 1
+  - _name: test1
+    _strength: 2
+  - _name: test2
+    _strength: 3
   _maxTasks: 5
+  _maxCards: 3
