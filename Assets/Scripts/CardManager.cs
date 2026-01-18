@@ -13,7 +13,10 @@ public class CardManager : MonoBehaviour {
     private void Awake() {
         _cardPool = new ObjectPool<Card>(_config.CardPrefab.GetComponent<Card>(), _config.MaxCards, transform);
         foreach (var slot in _slots){
-            StartCard("test", slot.transform.position);
+            if (slot.Card == null) {
+                int heroIndex = Random.Range(0, _config.Heroes.Length);
+                StartCard(_config.Heroes[heroIndex].Name, slot);
+            }
         }
         
     }
@@ -22,11 +25,12 @@ public class CardManager : MonoBehaviour {
         _activeCards.Remove(card);
     }
 
-    public void StartCard(string cardName, Vector3 slotPos) {
+    public void StartCard(string cardName, DragAndDropSlot slot) {
         Hero hero = _config.Heroes.FirstOrDefault(t => t.Name == cardName);
         if (hero != null) {
             Card card = _cardPool.Get();
-            card.Init(hero, slotPos, this);
+            slot.ChangeCard(card);
+            card.Init(hero, slot, this);
             _activeCards.Add(card);
         }
     }

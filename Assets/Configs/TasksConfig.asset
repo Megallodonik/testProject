@@ -16,7 +16,20 @@ MonoBehaviour:
   _cardPrefab: {fileID: 2104368101763458350, guid: bb46dcfb639e3b8498ba75cff3fbd242, type: 3}
   _tasks:
   - _taskName: test
-    _requairedStrength: 1
+    _requairedStrength: 2
+    _time: 5
+  - _taskName: test1
+    _requairedStrength: 3
+    _time: 5
+  - _taskName: test2
+    _requairedStrength: 4
+    _time: 5
+  - _taskName: test3
+    _requairedStrength: 5
+    _time: 5
+  - _taskName: test4
+    _requairedStrength: 6
+    _time: 5
   _heroes:
   - _name: test
     _strength: 1
