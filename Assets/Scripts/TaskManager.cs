@@ -12,8 +12,10 @@ public class TaskManager : MonoBehaviour
 
     private void Awake() {
         _taskPool = new ObjectPool<TaskPopUp>(_config.TaskPrefab.GetComponent<TaskPopUp>(), _config.MaxTasks, transform);
-        int taskIndex = Random.Range(0, _config.Tasks.Length);
-        StartTask(_config.Tasks[taskIndex].Name);
+        for (int i = 0; i < _config.MaxTasks; i++) {
+            int taskIndex = Random.Range(0, _config.Tasks.Length);
+            StartTask(_config.Tasks[taskIndex].Name);
+        }
     }
     public void EndTask(TaskPopUp task) {
         _taskPool.Return(task);

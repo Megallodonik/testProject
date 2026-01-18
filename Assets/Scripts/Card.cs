@@ -15,9 +15,12 @@ public class Card : DragAndDrop
     private CardManager _manager;
     private int _strength;
     private Hero _hero;
+    private bool _ready;
     public CardManager Manager => _manager;
+    public bool Ready => _ready;
     public Hero Hero => _hero;
     public void Init(Hero hero, DragAndDropSlot slot, CardManager manager) {
+        _ready = true;
         _hero = hero;
         _fullProgress = _progressImage.fillAmount;
         _progressImage.fillAmount = 0;
@@ -40,6 +43,7 @@ public class Card : DragAndDrop
     }
     
     public void Win() {
+        _ready = true;
         _taskProgress = 0;
         _taskProgressImage.fillAmount = _taskProgress;
         if (_progress < _fullProgress) {
@@ -53,7 +57,11 @@ public class Card : DragAndDrop
             _taskProgressImage.fillAmount = _taskProgress;
         }
     }
+    public void StartTask() {
+        _ready = false;
+    }
     public void Defeat() {
+        _ready = true;
         _taskProgress = 0;
         _taskProgressImage.fillAmount = _taskProgress;
         if (_strength > 0) {

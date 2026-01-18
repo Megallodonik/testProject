@@ -49,7 +49,6 @@ public class TaskPopUp : MonoBehaviour {
     }
     private void BeginTask(Card card) {
         _card = card;
-        _card.ReturnToLastSlot();
         StartCoroutine(Timer(_task.Time));
        _taskVisual.SetActive(false);
 

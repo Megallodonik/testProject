@@ -23,6 +23,7 @@ public class PopUpSlot : DragAndDropSlot
         _slot = _slotObj.transform;
     }
     public void Init(HeroTask task, TaskPopUp taskPopUp) {
+        _card = null;
         if (_titleText == null) {
             Debug.LogError($"Title Text of {this.gameObject} is not attached!");
             return;
@@ -50,15 +51,20 @@ public class PopUpSlot : DragAndDropSlot
 
         _titleText.text = $"Task: {_title}";
         _strengthText.text = $"S: {_requairedStrength.ToString()}";
+        _heroText.text = $"HS: waiting";
+        _winText.text = "waiting";
         _buttonText.text = "Close";
     }
 
     public override void OnDrop(PointerEventData eventData) {
         if (eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<Card>() != null) {
             Card card = eventData.pointerDrag.GetComponent<Card>();
-            if (_card == null) {
-                card.ChangeSlot(this);
+            if (!card.Ready) {
+                eventData.pointerDrag.GetComponent<DragAndDrop>().ReturnToSlot();
+            }
+            else if (_card == null) {
                 card.ReturnToSlot();
+                card.StartTask();
                 _heroText.text = $"HS: {card.Hero.Strength}";
                 TaskStarted?.Invoke(card);
                 _card = card;
